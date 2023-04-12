@@ -1,30 +1,30 @@
 export class Background {
-    destinationX = 0
-    destinationY = 0
-    width = 930
-    speed = 60
+    destinationX = 0;
+    destinationY = 0;
+    width = 930;
+    speed = 60;
 
     /**
      * @param {CanvasRenderingContext2D} ctx
      */
     constructor(ctx) {
-        this.image = new Image()
-        this.image.src = './assets/img/Background-930x360.jpg'
+        this.image = new Image();
+        this.image.src = "./asset/img/Background-930x360.jpg";
 
-        this.ctx = ctx
+        this.ctx = ctx;
     }
 
     /**
      * @param {CanvasRenderingContext2D} ctx
      */
     draw(ctx) {
-        this.ctx.drawImage(this.image, this.destinationX, this.destinationY)
+        this.ctx.drawImage(this.image, this.destinationX, this.destinationY);
 
         this.ctx.drawImage(
             this.image,
             this.destinationX + this.width,
             this.destinationY
-        )
+        );
     }
 
     /**
@@ -32,7 +32,7 @@ export class Background {
      * Laps de temps écoulé depuis le dernier update
      */
     update(deltaTime) {
-        this.destinationX -= (deltaTime * this.speed) / 1000
-        if (this.destinationX <= -this.width) this.destinationX = 0
+        this.destinationX -= (deltaTime * this.speed) / 1000;
+        if (this.destinationX <= -this.width) this.destinationX = 0;
     }
 }
